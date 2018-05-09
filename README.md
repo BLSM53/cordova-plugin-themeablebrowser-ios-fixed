@@ -6,9 +6,9 @@
     to you under the Apache License, Version 2.0 (the
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
-
+    
       http://www.apache.org/licenses/LICENSE-2.0
-
+    
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
     "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -16,6 +16,20 @@
     specific language governing permissions and limitations
     under the License.
 -->
+
+#### 修改代码
+
+```objective-c
+// 710行
+CGRect toolbarFrame = CGRectMake(0.0, toolbarY, self.view.bounds.size.width, toolbarHeight - 22);
+```
+
+```objective-c
+// 1349行
+self.titleLabel.frame = CGRectMake(floorf((screenWidth - width) / 2.0f), 0, width, toolbarHeight - 15);
+```
+
+[源代码地址](https://github.com/PluginCordova/cordova-plugin-themeablebrowser)
 
 cordova-plugin-themeablebrowser
 ===============================
@@ -226,7 +240,7 @@ Examples:
         } else if (e.code === cordova.ThemeableBrowser.ERR_LOADFAIL) {
             // TODO: Image failed to load.
         }
-
+    
         console.error(e.message);
     }).addEventListener(cordova.ThemeableBrowser.EVT_WRN, function(e) {
         if (e.code === cordova.ThemeableBrowser.WRN_UNDEFINED) {
@@ -234,7 +248,7 @@ Examples:
         } else if (e.code === cordova.ThemeableBrowser.WRN_UNEXPECTED) {
             // TODO: Something strange happened. But no big deal.
         }
-
+    
         console.log(e.message);
     });
 
