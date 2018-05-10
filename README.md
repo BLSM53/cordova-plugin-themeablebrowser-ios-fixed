@@ -17,16 +17,24 @@
     under the License.
 -->
 
-#### 修改代码
+#### 修改IOS 11以上版本toolbar和网页区域重叠问题
 
 ```objective-c
-// 710行
-CGRect toolbarFrame = CGRectMake(0.0, toolbarY, self.view.bounds.size.width, toolbarHeight - 22);
+// 711行
+if(IsAtLeastiOSVersion(@"11.0")) {
+   tHeight = toolbarHeight - 22;
+}
+CGRect toolbarFrame = CGRectMake(0.0, toolbarY, self.view.bounds.size.width, tHeight);
 ```
 
 ```objective-c
-// 1349行
-self.titleLabel.frame = CGRectMake(floorf((screenWidth - width) / 2.0f), 0, width, toolbarHeight - 15);
+// 1353行
+if(IsAtLeastiOSVersion(@"11.0")) {
+   tHeight = toolbarHeight - 15;
+}
+if (self.titleLabel) {
+    self.titleLabel.frame = CGRectMake(floorf((screenWidth - width) / 2.0f), 0, width, tHeight);
+}
 ```
 
 [源代码地址](https://github.com/PluginCordova/cordova-plugin-themeablebrowser)
